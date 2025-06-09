@@ -7,6 +7,7 @@ This repository showcases a simple e-commerce storefront built with **React**, *
 - Shopping cart and wishlist powered by React context
 - Category filtering and newsletter sign‑up section
 - Ready to customize with your own products and styles
+- Optional A.I. modules for product recommendations and chat assistance
 
 ## Getting Started
 1. Install dependencies:
@@ -26,6 +27,12 @@ This repository showcases a simple e-commerce storefront built with **React**, *
    ```bash
    npm run build
    ```
+
+## A.I. Enhancements
+This demo now outlines optional features powered by A.I. services. Example ideas include a
+product recommendation engine that learns from user behavior and a chatbot that answers
+common questions. These modules are decoupled from the core codebase so you can integrate
+your preferred A.I. provider or extend them with your own models.
 
 ## Who is this for?
 ### Potential Clients
