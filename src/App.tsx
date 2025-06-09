@@ -1,9 +1,18 @@
 import React from 'react';
-import EcommerceSite from './modern_ecommerce_site';
+import Home from './pages/Home';
+import { CartProvider } from './context/CartContext';
+import { WishlistProvider } from './context/WishlistContext';
+import { CategoryProvider } from './context/CategoryContext';
 import './index.css';
 
-const App = () => {
-  return <EcommerceSite />;
-};
+const App: React.FC = () => (
+  <CartProvider>
+    <WishlistProvider>
+      <CategoryProvider>
+        <Home />
+      </CategoryProvider>
+    </WishlistProvider>
+  </CartProvider>
+);
 
 export default App;
