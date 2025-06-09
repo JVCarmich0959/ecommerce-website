@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import { Menu, X, Search, User } from 'lucide-react';
 import { useCart } from '../../hooks/useCart';
 import { useWishlist } from '../../hooks/useWishlist';
+import { useSearchSuggestions } from '../../hooks/useSearchSuggestions';
 import MobileMenu from './MobileMenu';
 
 const Header: React.FC = () => {
   const { items } = useCart();
   const { wishlist } = useWishlist();
   const [open, setOpen] = useState(false);
+  const { query, setQuery, suggestions } = useSearchSuggestions();
+  const [focused, setFocused] = useState(false);
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50 backdrop-blur-md bg-white/95">
@@ -22,8 +25,25 @@ const Header: React.FC = () => {
           </nav>
           <div className="flex items-center space-x-4">
             <div className="relative hidden sm:block">
-              <input type="text" placeholder="Search products..." className="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" />
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
+                className="w-64 pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              />
               <Search className="absolute left-3 top-2.5 h-5 w-5 text-gray-400" />
+              {focused && suggestions.length > 0 && (
+                <ul className="absolute mt-1 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10">
+                  {suggestions.map((s, i) => (
+                    <li key={i} className="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                      {s}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             <button className="p-2 text-gray-700 hover:text-purple-600">
               <User className="h-6 w-6" />
