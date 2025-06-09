@@ -6,6 +6,7 @@ import CategoryFilter from '../components/sections/CategoryFilter';
 import ProductGrid from '../components/sections/ProductGrid';
 import RecommendedProducts from '../components/sections/RecommendedProducts';
 import Newsletter from '../components/sections/Newsletter';
+import ChatAssistant from '../components/ai/ChatAssistant';
 
 const Home: React.FC = () => (
   <div className="min-h-screen bg-gray-50">
@@ -16,6 +17,7 @@ const Home: React.FC = () => (
     <RecommendedProducts userId="demo-user" />
     <Newsletter />
     <Footer />
+    <ChatAssistant />
   </div>
 );
 
