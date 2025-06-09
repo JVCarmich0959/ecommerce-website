@@ -4,6 +4,7 @@ import Footer from '../components/layout/Footer';
 import HeroCarousel from '../components/sections/HeroCarousel';
 import CategoryFilter from '../components/sections/CategoryFilter';
 import ProductGrid from '../components/sections/ProductGrid';
+import RecommendedProducts from '../components/sections/RecommendedProducts';
 import Newsletter from '../components/sections/Newsletter';
 
 const Home: React.FC = () => (
@@ -12,6 +13,7 @@ const Home: React.FC = () => (
     <HeroCarousel />
     <CategoryFilter />
     <ProductGrid />
+    <RecommendedProducts userId="demo-user" />
     <Newsletter />
     <Footer />
   </div>
